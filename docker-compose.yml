@@ -1,37 +1,32 @@
-version: '3.9'
 services:
   front:
     build: ./front-end
     ports:
-      - "5173:5173"
+      - "5173:80"
     depends_on:
       - back
     environment:
-      - VITE_API_URL=http://localhost:3000
+      VITE_API_URL: /api
 
   back:
     build: ./back-end
-    ports:
-      - "3000:3000"
     depends_on:
       - db
     environment:
       CONNECTION_HOST: db
       CONNECTION_USER: root
-      CONNECTION_PASSWORD: example
+      CONNECTION_PASSWORD: ${DB_PASSWORD}
       CONNECTION_DATABASE: evenshare
 
   db:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: evenshare
     volumes:
       - ./db_init:/docker-entrypoint-initdb.d   # place your evenshare.sql here
       - db_data:/var/lib/mysql
-    ports:
-      - "3306:3306"
 
 volumes:
   db_data:
