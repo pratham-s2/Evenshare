@@ -1,5 +1,5 @@
 # EvenShare
 
-<a href="https://evenshare.org" target="_blank">EvenShare is live at evenshare.org</a>
+Evenshare is live at [evenshare.org](http://evenshare.org)
 
 You can access the web app and start splitting bills with your groups seamlessly.
