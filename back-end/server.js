@@ -8,7 +8,7 @@ require("dotenv").config();
 const db = require('./db.js')
 
 app.use(cors({
-    origin: 'http://18.215.167.131',
+    origin: ['http://evenshare.org', 'http://www.evenshare.org'],
     credentials: true
 }));
 
