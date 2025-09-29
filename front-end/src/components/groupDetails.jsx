@@ -58,7 +58,10 @@ function GroupDetails() {
 
       for (const transaction of responseData.transactions_self){
         for (const balance of transaction.balances){
-          balances_temp[balance.assignee_id].owedToUser += balance.balance_amount
+          // Only add balance if the assignee is not the same as the creator
+          if (balance.assignee_id !== transaction.creator_id) {
+            balances_temp[balance.assignee_id].owedToUser += balance.balance_amount
+          }
         }
       }
       setTotalBalances(balances_temp)
