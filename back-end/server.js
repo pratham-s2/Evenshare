@@ -366,7 +366,7 @@ app.post("/groups/details/transactions", authenticateToken, async (req, res)=>{
 
         let difference = transaction_info.amount - amount_sum
         const firstUser = Object.keys(user_amounts)[0]
-        user_amounts[firstUser][1] = (Number(user_amounts[firstUser][1]) + difference).toFixed()
+        user_amounts[firstUser][1] = (Number(user_amounts[firstUser][1]) + difference).toFixed(2)
 
         //generate transaction id
         let codeValid = false
