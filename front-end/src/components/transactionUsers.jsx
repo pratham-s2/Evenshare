@@ -42,6 +42,7 @@ function TransactionUsers ({username, userAmounts, setUserAmounts, isPercentage,
                     newUserAmounts[username][0] = Math.round((Number(curr_amount) / amount)*10000)/100
                 }
             }
+            console.log(newUserAmounts)
             return newUserAmounts
         })
     }
