@@ -50,7 +50,6 @@ function AddTransactionModal({ onClose, group_id, groupMembers, initialValues, i
       })
 
       setUserAmounts(tempUserAmounts)
-      console.log("userAmounts:", tempUserAmounts)
     }
     } else {
       // If not editing, initialize userAmounts evenly across groupMembers

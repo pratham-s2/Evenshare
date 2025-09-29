@@ -35,7 +35,6 @@ function GroupDetails() {
     );
 
     const responseData = await response.json();
-    console.log(responseData);
 
     if (responseData.status == "success") {
       setSelfTransactions(responseData.transactions_self);
@@ -65,7 +64,6 @@ function GroupDetails() {
         }
       }
       setTotalBalances(balances_temp)
-      console.log(balances_temp)
 
       const allDates = [
         ...responseData.transactions_self.map((t) => t.date_edited),
