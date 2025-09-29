@@ -24,7 +24,7 @@ function GroupDetails() {
 
   async function initializeGroupDetails() {
     const response = await fetch(
-      `http://localhost:3000/groups/details?group_id=${group_id}`,
+      `${import.meta.env.VITE_API_URL}/groups/details?group_id=${group_id}`,
       {
         method: "GET",
         headers: {
