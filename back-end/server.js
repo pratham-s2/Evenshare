@@ -225,8 +225,8 @@ app.get("/groups/details", authenticateToken, async (req,res)=>{
             [group_id, user_id, user_id])
         
             const [selfTransactionsResults] = await db.query("SELECT transactions.*, balances.amount AS balance_amount, balances.assignee_id FROM transactions INNER "+ 
-            "JOIN balances ON transactions.transaction_id=balances.transaction_id WHERE transactions.creator_id=(?) AND transactions.group_id=(?) AND balances.assignee_id!=(?)", 
-            [user_id, group_id, user_id])
+            "JOIN balances ON transactions.transaction_id=balances.transaction_id WHERE transactions.creator_id=(?) AND transactions.group_id=(?)", 
+            [user_id, group_id])
         
             const [groupResults] = await db.query("SELECT * FROM `groups` WHERE group_id=(?)",[group_id])
 
