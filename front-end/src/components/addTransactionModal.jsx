@@ -145,20 +145,20 @@ function AddTransactionModal({ onClose, group_id, groupMembers, initialValues, i
     }}
 
   return (
-     <div className="fixed inset-0 bg-[#00000099] bg-opacity-50 flex justify-center items-center z-50" onClick={onClose}>
-      <div className="bg-white p-8 rounded-xl shadow-2xl w-[450px] max-w-[90vw]" onClick={(e) => e.stopPropagation()}>
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">Add Transaction</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600  p-1">
-            <X size={24} />
+     <div className="fixed inset-0 bg-[#00000099] bg-opacity-50 flex justify-center items-center z-50 p-4" onClick={onClose}>
+      <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl shadow-2xl w-full max-w-[90vw] sm:max-w-[500px] max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+        <div className="flex justify-between items-center mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Add Transaction</h2>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 p-1">
+            <X size={20} className="sm:w-6 sm:h-6" />
           </button>
         </div>
-        <div className="space-y-5">
+        <div className="space-y-3 sm:space-y-4 lg:space-y-5">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Transaction Name</label>
             <input
             value={name}
-              className={`w-full border border-gray-300  rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+              className={`w-full border border-gray-300 rounded-lg p-2 sm:p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
               placeholder="e.g. Restaurant dinner" onChange={(e)=>setTransactionName(e.target.value)}
             />
           </div>
@@ -168,7 +168,7 @@ function AddTransactionModal({ onClose, group_id, groupMembers, initialValues, i
           <input
             type="text"
             value={amount}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full border border-gray-300 rounded-lg p-2 sm:p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             placeholder="e.g. 45.50"
             onChange={(e) => {
               let value = e.target.value;
@@ -197,7 +197,7 @@ function AddTransactionModal({ onClose, group_id, groupMembers, initialValues, i
             <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
             <input
               value={description}
-              className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border border-gray-300 rounded-lg p-2 sm:p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="e.g. Dinner with friends at Italian restaurant" onChange={(e)=>setTransactionDescription(e.target.value)}
             />
           </div>
@@ -207,15 +207,15 @@ function AddTransactionModal({ onClose, group_id, groupMembers, initialValues, i
             <input
               value={date}
               type="date"
-              className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border border-gray-300 rounded-lg p-2 sm:p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               onChange={(e)=>setTransactionDate(e.target.value)}
             />
           </div>
           {validFields.message=="bad fields" && <p className="text-red-400 text-center">Ensure all fields are filled out</p>}
         </div>
         <div>
-          <div className="flex flex-row justify-between items-end mr-3 mt-7 mb-4">
-            <p className="text-lg font-semibold">Assign Costs:</p>
+          <div className="flex flex-row justify-between items-end mr-3 mt-4 sm:mt-6 lg:mt-7 mb-3 sm:mb-4">
+            <p className="text-base sm:text-lg font-semibold">Assign Costs:</p>
             <div className="mr-1">
               <ToggleSwitch isPercentage={isPercentage} setIsPercentage={setIsPercentage}/>
             </div>
@@ -228,8 +228,8 @@ function AddTransactionModal({ onClose, group_id, groupMembers, initialValues, i
           {validFields.message=="bad amount" && <p className="text-red-400 text-center">Ensure total amount is greater than zero</p>}
           
         </div>
-        <div className="flex justify-center gap-3 mt-8">
-          <button className="px-14 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium" onClick={handleAddTransaction}>
+        <div className="flex justify-center gap-3 mt-6 sm:mt-8">
+          <button className="px-8 sm:px-12 lg:px-14 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-sm sm:text-base" onClick={handleAddTransaction}>
              {isEdit ? "Save Changes" : "Add Transaction"}
           </button>
         </div>
