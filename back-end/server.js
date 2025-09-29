@@ -8,7 +8,7 @@ require("dotenv").config();
 const db = require('./db.js')
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'http://18.215.167.131',
     credentials: true
 }));
 
