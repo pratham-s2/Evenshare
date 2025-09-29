@@ -30,7 +30,7 @@ function Landing() {
 
       {/* Hero Section */}
       <div className='flex flex-grow flex-col justify-start items-center mt-32 px-4 text-center'>
-        <p className='text-4xl sm:text-6xl font-bold mb-3 text-black'>Split TESTING CI/CD PIPELINE Easily with Friends</p>
+        <p className='text-4xl sm:text-6xl font-bold mb-3 text-black'>Split Bills Easily with Friends</p>
         <p className='text-md sm:text-xl font-normal text-gray-800 mb-6'>
           Create groups, add friends, and split expenses fairly. No more awkward money conversations.
         </p>
