@@ -351,6 +351,7 @@ function GroupDetails() {
                     transaction_id={transaction.transaction_id}
                     date={transaction.date_edited}
                     balances={transaction.balances}
+                    creator_id={transaction.creator_id}
                     handleDeleteTransaction={handleDeleteTransaction}
                     group_id={group_id}
                     group_members={groupMembers}

@@ -2,7 +2,7 @@ import { Trash } from "lucide-react";
 import { useState } from "react";
 import AddTransactionModal from "./addTransactionModal";
 
-function TransactionSelf({ name, description, date, total_amount, balances, transaction_id, handleDeleteTransaction, group_id, group_members, initializeGroupDetails}) {
+function TransactionSelf({ name, description, date, total_amount, balances, transaction_id, creator_id, handleDeleteTransaction, group_id, group_members, initializeGroupDetails}) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showTransactionModal, setShowTransactionModal] = useState(false);
   const [success, setSuccess] = useState(true)
@@ -25,6 +25,11 @@ function TransactionSelf({ name, description, date, total_amount, balances, tran
           <div className="text-sm text-gray-700">
             {balances &&
               balances.map((balance) => {
+                // Skip displaying balances where the assignee is the same as the creator
+                if (balance.assignee_id === creator_id) {
+                  return null;
+                }
+                
                 if (balance.balance_amount > 0) {
                   return (
                     <p key={balance.assignee_id}>
